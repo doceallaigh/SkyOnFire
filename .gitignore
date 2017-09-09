@@ -9,3 +9,5 @@ SkyOnFire/Obj/
 *.userprefs
 *.DS_store
 SkyOnFire/\.vs/
+
+*.meta
