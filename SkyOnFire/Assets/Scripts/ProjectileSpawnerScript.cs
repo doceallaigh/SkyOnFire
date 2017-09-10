@@ -14,7 +14,7 @@ public class ProjectileSpawnerScript : EntitySpawnerScript
 		
 	}
 
-    public override void Spawn()
+    protected override void Spawn()
     {
         GameObject projectileGameObject = GameObject.Instantiate(Resources.Load("Projectile")) as GameObject;
         ProjectileScript projectileScript = projectileGameObject.GetComponent<ProjectileScript>();

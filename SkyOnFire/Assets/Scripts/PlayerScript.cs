@@ -65,7 +65,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetAxis("Shoot") > 0)
         {
-            this.projectileSpawner.Spawn();
+            this.projectileSpawner.TrySpawn();
         }
     }
 }
