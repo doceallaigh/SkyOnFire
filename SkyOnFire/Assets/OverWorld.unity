@@ -481,7 +481,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1883142074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd19d3de6e9363b45a196ed32e05dc83, type: 3}
+  m_Script: {fileID: 11500000, guid: 644c6cd960b0bf94ab5a5a5c3ca85ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   translationAxisMultiplier: 100
