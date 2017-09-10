@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     public ForceProviderScript forceProvider;
+    public ProjectileSpawnerScript projectileSpawner;
 
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
@@ -22,6 +23,8 @@ public class PlayerScript : MonoBehaviour
 	    this.ApplyRotation(deltaTime);
 	    this.ApplyTranslationalForce(deltaTime);
 	    this.ApplyRotationalForce(deltaTime);
+
+	    this.SpawnProjectiles();
 	}
 
     private void ApplyTranslation(float deltaTime)
@@ -56,5 +59,13 @@ public class PlayerScript : MonoBehaviour
 
         Vector3 rotationalMoment = rotationalAcceleration * deltaTime;
         this.rotationalVelocity += rotationalMoment;
+    }
+
+    private void SpawnProjectiles()
+    {
+        if (Input.GetAxis("Shoot") > 0)
+        {
+            this.projectileSpawner.Spawn();
+        }
     }
 }
