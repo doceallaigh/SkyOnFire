@@ -10,6 +10,16 @@ public class EnemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("yeehaw");
+
+        if(other.name == "PlayerShip")
+        {
+            Debug.Log("buh");
+        }
+    }
 }
