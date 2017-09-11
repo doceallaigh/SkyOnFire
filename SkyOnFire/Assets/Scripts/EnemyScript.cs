@@ -6,14 +6,16 @@ public class EnemyScript : MonoBehaviour
     public ForceProviderScript forceProvider;
     public ProjectileSpawnerScript projectileSpawner;
     public CollisionRelayScript collisionRelayScript;
-
-    EnemyHealth health;
+    
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
+
+    private EnemyHealth health;
+
     void Start ()
 	{
-        health = GetComponent<EnemyHealth> ();
-        Debug.Log(health.currentHealth);
+        this.health = GetComponent<EnemyHealth> ();
+        Debug.Log(this.health.currentHealth);
 	    this.collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
 	}
 	
@@ -76,9 +78,9 @@ public class EnemyScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        health.TakeDamage(1);
+        this.health.TakeDamage(1);
 
-        Debug.Log("Current Health: " + health.currentHealth);
+        Debug.Log("Current Health: " + this.health.currentHealth);
 
         Debug.Log("yeehaw");
 
