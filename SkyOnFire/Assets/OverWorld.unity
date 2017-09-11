@@ -117,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83647875}
   - component: {fileID: 83647874}
+  - component: {fileID: 83647876}
   - component: {fileID: 83647873}
   m_Layer: 0
   m_Name: EnemyShip
@@ -170,6 +171,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &83647876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83647872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51375b038a950fa41979abc606aff02e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  isDead: 0
 --- !u!1001 &477943741
 Prefab:
   m_ObjectHideFlags: 0
