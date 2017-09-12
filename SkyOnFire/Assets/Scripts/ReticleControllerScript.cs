@@ -2,7 +2,6 @@
 
 public class ReticleControllerScript : MonoBehaviour
 {
-    public Camera camera;
     public GUITexture reticleTexture;
 
     // Use this for initialization
@@ -14,8 +13,8 @@ public class ReticleControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float normalizedX = Input.mousePosition.x / this.camera.pixelWidth;
-        float normalizedY = Input.mousePosition.y / this.camera.pixelHeight;
+        float normalizedX = Input.mousePosition.x / Camera.main.pixelWidth;
+        float normalizedY = Input.mousePosition.y / Camera.main.pixelHeight;
 
         Vector2 normalizedmousePosition = new Vector2(normalizedX, normalizedY);
 
