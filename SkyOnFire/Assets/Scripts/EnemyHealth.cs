@@ -12,8 +12,8 @@ public class EnemyHealth : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        currentHealth = maxHealth;
-        isDead = false;
+        this.currentHealth = maxHealth;
+        this.isDead = false;
     }
 
     // Update is called once per frame
@@ -24,22 +24,21 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (isDead == true)
+        if (this.isDead == true)
         {
             return;
         }
 
-        currentHealth -= amount;
+        this.currentHealth -= amount;
 
-        if (currentHealth <= 0)
+        if (this.currentHealth <= 0)
         {
-            Die();
+            this.Die();
         }
-
     }
 
     public void Die()
     {
-        isDead = true;
+        this.isDead = true;
     }
 }
