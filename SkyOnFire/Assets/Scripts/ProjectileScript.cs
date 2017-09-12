@@ -15,4 +15,9 @@ public class ProjectileScript : MonoBehaviour
     {
         this.transform.Translate(this.velocity);
     }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Object.Destroy(this.gameObject);
+    }
 }
