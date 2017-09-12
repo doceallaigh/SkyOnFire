@@ -68,6 +68,7 @@ public class EnemyScript : MonoBehaviour
 
     private void SpawnProjectiles()
     {
+        this.projectileSpawner.Aim(this.transform.forward);
         this.projectileSpawner.TrySpawn();
     }
 
