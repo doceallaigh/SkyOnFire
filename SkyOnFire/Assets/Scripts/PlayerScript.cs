@@ -10,22 +10,23 @@ public class PlayerScript : MonoBehaviour
     public Vector3 rotationalVelocity;
 
     // Use this for initialization
-    public void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	public void Update ()
-	{
-	    float deltaTime = Time.deltaTime;
+    public void Start()
+    {
 
-	    this.ApplyTranslation(deltaTime);
-	    this.ApplyRotation(deltaTime);
-	    this.ApplyTranslationalForce(deltaTime);
-	    this.ApplyRotationalForce(deltaTime);
+    }
 
-	    this.SpawnProjectiles();
-	}
+    // Update is called once per frame
+    public void Update()
+    {
+        float deltaTime = Time.deltaTime;
+
+        this.ApplyTranslation(deltaTime);
+        this.ApplyRotation(deltaTime);
+        this.ApplyTranslationalForce(deltaTime);
+        this.ApplyRotationalForce(deltaTime);
+
+        this.SpawnProjectiles();
+    }
 
     private void ApplyTranslation(float deltaTime)
     {

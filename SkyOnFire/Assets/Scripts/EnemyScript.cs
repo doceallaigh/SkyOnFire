@@ -6,30 +6,30 @@ public class EnemyScript : MonoBehaviour
     public ForceProviderScript forceProvider;
     public ProjectileSpawnerScript projectileSpawner;
     public CollisionRelayScript collisionRelayScript;
-    
+
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
 
     private EnemyHealth health;
 
-    void Start ()
-	{
-        this.health = GetComponent<EnemyHealth> ();
-        Debug.Log(this.health.currentHealth);
-	    this.collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    void Start()
     {
-	    float deltaTime = Time.deltaTime;
+        this.health = GetComponent<EnemyHealth>();
+        Debug.Log(this.health.currentHealth);
+        this.collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
+    }
 
-	    this.ApplyTranslation(deltaTime);
-	    this.ApplyRotation(deltaTime);
-	    this.ApplyTranslationalForce(deltaTime);
-	    this.ApplyRotationalForce(deltaTime);
+    // Update is called once per frame
+    void Update()
+    {
+        float deltaTime = Time.deltaTime;
 
-	    this.SpawnProjectiles();
+        this.ApplyTranslation(deltaTime);
+        this.ApplyRotation(deltaTime);
+        this.ApplyTranslationalForce(deltaTime);
+        this.ApplyRotationalForce(deltaTime);
+
+        this.SpawnProjectiles();
     }
 
     private void ApplyTranslation(float deltaTime)

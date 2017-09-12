@@ -8,15 +8,16 @@ public class ProjectileSpawnerScript : EntitySpawnerScript
     private Vector3 aimDirection;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         this.aimDirection = this.transform.forward;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     public void Aim(Vector3 shotDirection)
     {

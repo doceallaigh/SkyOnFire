@@ -36,12 +36,13 @@ public class TargetTrackingForceProvider : ForceProviderScript
 
     private void UpdateRotationalForce(float deltaTime)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(this.target.position - this.transform.position, this.transform.up);
+        Quaternion targetRotation = Quaternion.LookRotation(this.target.position - this.transform.position,
+            this.transform.up);
 
         // TODO This should be done in a less naive way
         this.rotationalForce = new Vector3(
-            targetRotation.eulerAngles.x - this.transform.rotation.eulerAngles.x, 
-            targetRotation.eulerAngles.y - this.transform.rotation.eulerAngles.y, 
+            targetRotation.eulerAngles.x - this.transform.rotation.eulerAngles.x,
+            targetRotation.eulerAngles.y - this.transform.rotation.eulerAngles.y,
             targetRotation.eulerAngles.z - this.transform.rotation.eulerAngles.z);
         this.rotationalForce *= this.rotationAxisMultiplier;
 

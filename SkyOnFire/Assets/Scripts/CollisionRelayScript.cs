@@ -18,14 +18,16 @@ public class CollisionRelayScript : MonoBehaviour
     public EventHandler<CollisionEventArgs> CollisionEvent { get; set; }
 
     // Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
