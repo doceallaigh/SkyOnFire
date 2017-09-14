@@ -13,7 +13,7 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.Translate(this.velocity);
+        this.GetComponent<Rigidbody>().MovePosition(this.transform.position + this.velocity);
     }
 
     void OnTriggerEnter(Collider collider)
