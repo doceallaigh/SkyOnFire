@@ -5,9 +5,7 @@ public class ShipScript : MonoBehaviour
 {
     public ForceProviderScript forceProvider;
     public ProjectileSpawnerScript projectileSpawner;
-
-    // TODO Figure out a better way to handle this
-    public CollisionRelayScript[] collisionRelayScripts;
+    public CollisionHandlerScript[] collisionHandlerScripts;
 
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
@@ -18,11 +16,6 @@ public class ShipScript : MonoBehaviour
     {
         this.health = GetComponent<HealthTrackerScript>();
         Debug.Log(this.health.currentHealth);
-
-        foreach (CollisionRelayScript collisionRelayScript in this.collisionRelayScripts)
-        {
-            collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
-        }
     }
 
     // Update is called once per frame
@@ -76,24 +69,5 @@ public class ShipScript : MonoBehaviour
     private void SpawnProjectiles()
     {
         this.projectileSpawner.TrySpawn();
-    }
-
-    private void HandleCollisionRelay(object sender, CollisionRelayScript.CollisionEventArgs eventArgs)
-    {
-        this.OnTriggerEnter(eventArgs.Collider);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        this.health.TakeDamage(1);
-
-        Debug.Log("Current Health: " + this.health.currentHealth);
-
-        Debug.Log("yeehaw");
-
-        if (other.name == "PlayerShip")
-        {
-            Debug.Log("buh");
-        }
     }
 }

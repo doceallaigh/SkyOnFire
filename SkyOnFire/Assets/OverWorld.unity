@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceProvider: {fileID: 83647873}
   projectileSpawner: {fileID: 1586192518}
-  collisionRelayScripts:
-  - {fileID: 1563177257}
+  collisionHandlerScripts:
+  - {fileID: 1563177252}
   translationalVelocity: {x: 0, y: 0, z: 0}
   rotationalVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &83647875
@@ -717,6 +717,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1478763926639530, guid: e5078c17b52bb014882bc0363c060079,
     type: 2}
   m_PrefabInternal: {fileID: 477943741}
+--- !u!114 &1563177252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1563177251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d22f579ba8b1048af3421f516c2457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTrackerScript: {fileID: 83647876}
 --- !u!54 &1563177253
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -732,17 +744,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1563177257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1563177251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 024352c01de98df46907eab3eb4f9566, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1563177258 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4050943347418754, guid: e5078c17b52bb014882bc0363c060079,
