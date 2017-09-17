@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class HealthTrackerScript : MonoBehaviour
 {
@@ -8,20 +6,23 @@ public class HealthTrackerScript : MonoBehaviour
     public int currentHealth;
     public bool isDead;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         this.currentHealth = maxHealth;
         this.isDead = false;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        Debug.Log(this.currentHealth);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         //pretty cool animation
-        if(this.isDead == true)
+        if (this.isDead == true)
         {
             this.transform.Rotate(10, 20, 15);
         }
-	}
+    }
 
     public void TakeDamage(int amount)
     {
@@ -36,6 +37,8 @@ public class HealthTrackerScript : MonoBehaviour
         {
             this.Die();
         }
+
+        Debug.Log("Current Health: " + this.currentHealth);
     }
 
     public void Die()

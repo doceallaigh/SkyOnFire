@@ -8,8 +8,6 @@ public class HealthModifyingCollisionHandlerScript : CollisionHandlerScript
     {
         this.healthTrackerScript.TakeDamage(1);
 
-        Debug.Log("Current Health: " + this.healthTrackerScript.currentHealth);
-
         // TODO This should be split out into a separate handler
         Debug.Log("yeehaw");
 

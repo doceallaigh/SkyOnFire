@@ -1,21 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class ShipScript : MonoBehaviour
 {
     public ForceProviderScript forceProvider;
     public ProjectileSpawnerScript projectileSpawner;
+
     public CollisionHandlerScript[] collisionHandlerScripts;
 
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
 
-    private HealthTrackerScript health;
-
     void Start()
     {
-        this.health = GetComponent<HealthTrackerScript>();
-        Debug.Log(this.health.currentHealth);
     }
 
     // Update is called once per frame
