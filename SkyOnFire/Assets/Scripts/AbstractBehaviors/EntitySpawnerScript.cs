@@ -3,18 +3,14 @@ using UnityEngine;
 
 public abstract class EntitySpawnerScript : MonoBehaviour
 {
-    public float spawnCoolDownSec;
-
-    private DateTime lastSpawnTime = DateTime.MinValue;
+    public ActionRestrictorScript actionRestrictorScript;
 
     public virtual bool TrySpawn()
     {
-        double secsSinceLastSpawn = (DateTime.Now - this.lastSpawnTime).TotalSeconds;
-
-        if (secsSinceLastSpawn >= this.spawnCoolDownSec)
+        if (this.actionRestrictorScript.RestrictionSatisfied())
         {
             this.Spawn();
-            this.lastSpawnTime = DateTime.Now;
+            this.actionRestrictorScript.ActionTaken();
 
             return true;
         }

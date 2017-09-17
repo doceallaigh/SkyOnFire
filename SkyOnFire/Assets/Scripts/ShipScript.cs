@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyScript : MonoBehaviour
+public class ShipScript : MonoBehaviour
 {
     public ForceProviderScript forceProvider;
     public ProjectileSpawnerScript projectileSpawner;
-    public CollisionRelayScript collisionRelayScript;
+
+    // TODO Figure out a better way to handle this
+    public CollisionRelayScript[] collisionRelayScripts;
 
     public Vector3 translationalVelocity;
     public Vector3 rotationalVelocity;
 
-    private EnemyHealth health;
+    private HealthTrackerScript health;
 
     void Start()
     {
-        this.health = GetComponent<EnemyHealth>();
+        this.health = GetComponent<HealthTrackerScript>();
         Debug.Log(this.health.currentHealth);
-        this.collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
+
+        foreach (CollisionRelayScript collisionRelayScript in this.collisionRelayScripts)
+        {
+            collisionRelayScript.CollisionEvent += this.HandleCollisionRelay;
+        }
     }
 
     // Update is called once per frame
@@ -24,6 +30,7 @@ public class EnemyScript : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
 
+        // These steps should be done via RigidBody
         this.ApplyTranslation(deltaTime);
         this.ApplyRotation(deltaTime);
         this.ApplyTranslationalForce(deltaTime);
@@ -68,7 +75,6 @@ public class EnemyScript : MonoBehaviour
 
     private void SpawnProjectiles()
     {
-        this.projectileSpawner.Aim(this.transform.forward);
         this.projectileSpawner.TrySpawn();
     }
 

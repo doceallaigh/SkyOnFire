@@ -153,7 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceProvider: {fileID: 83647873}
   projectileSpawner: {fileID: 1586192518}
-  collisionRelayScript: {fileID: 1563177257}
+  collisionRelayScripts:
+  - {fileID: 1563177257}
   translationalVelocity: {x: 0, y: 0, z: 0}
   rotationalVelocity: {x: 0, y: 0, z: 0}
 --- !u!4 &83647875
@@ -260,6 +261,10 @@ GameObject:
   m_Component:
   - component: {fileID: 812000913}
   - component: {fileID: 812000912}
+  - component: {fileID: 812000914}
+  - component: {fileID: 812000917}
+  - component: {fileID: 812000916}
+  - component: {fileID: 812000915}
   m_Layer: 0
   m_Name: PlayerProjectileSpawner
   m_TagString: Untagged
@@ -278,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a4089fb12af9b41afb5c5dc2df1f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCoolDownSec: 0.5
+  actionRestrictorScript: {fileID: 812000917}
   projectileSpeed: 1
+  aimProviderScript: {fileID: 812000914}
 --- !u!4 &812000913
 Transform:
   m_ObjectHideFlags: 0
@@ -293,6 +299,55 @@ Transform:
   m_Father: {fileID: 1553810089}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &812000914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812000911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f612534a4de29543b4f6267a37a46f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &812000915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812000911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2d6b70b6d44914d90540d77c67fe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimitBetweenActionsSec: 0.5
+--- !u!114 &812000916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812000911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c83f8de311f6340acd31a11a10f502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAxis: Shoot
+--- !u!114 &812000917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 812000911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ee8f76347cbb44f9dc96e262aa61ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggregatedScripts:
+  - {fileID: 812000916}
+  - {fileID: 812000915}
 --- !u!1 &839798781
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +756,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1586192517}
+  - component: {fileID: 1586192520}
   - component: {fileID: 1586192518}
+  - component: {fileID: 1586192519}
   m_Layer: 0
   m_Name: EnemyProjectileSpawner
   m_TagString: Untagged
@@ -733,5 +790,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34a4089fb12af9b41afb5c5dc2df1f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCoolDownSec: 0.5
+  actionRestrictorScript: {fileID: 1586192520}
   projectileSpeed: 1
+  aimProviderScript: {fileID: 1586192519}
+--- !u!114 &1586192519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586192516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a80a70045addf1c469e5b3b13672c59d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1586192520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1586192516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2d6b70b6d44914d90540d77c67fe4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLimitBetweenActionsSec: 0.5

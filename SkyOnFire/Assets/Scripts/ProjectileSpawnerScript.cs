@@ -4,24 +4,20 @@ using UnityEngine;
 public class ProjectileSpawnerScript : EntitySpawnerScript
 {
     public int projectileSpeed;
+    public AimProviderScript aimProviderScript;
 
     private Vector3 aimDirection;
 
     // Use this for initialization
     void Start()
     {
-        this.aimDirection = this.transform.forward;
+        this.aimDirection = this.aimProviderScript.GetAimDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    public void Aim(Vector3 shotDirection)
-    {
-        this.aimDirection = shotDirection;
+        this.aimDirection = this.aimProviderScript.GetAimDirection();
     }
 
     protected override void Spawn()

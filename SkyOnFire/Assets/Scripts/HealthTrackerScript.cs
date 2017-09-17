@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class HealthTrackerScript : MonoBehaviour
 {
     public const int maxHealth = 5;
     public int currentHealth;

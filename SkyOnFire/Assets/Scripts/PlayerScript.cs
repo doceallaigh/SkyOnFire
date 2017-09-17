@@ -66,10 +66,6 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetAxis("Shoot") > 0)
         {
-            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 shotDirection = mouseRay.direction;
-
-            this.projectileSpawner.Aim(shotDirection);
             this.projectileSpawner.TrySpawn();
         }
     }
