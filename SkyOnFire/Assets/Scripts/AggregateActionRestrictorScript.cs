@@ -2,8 +2,7 @@
 
 public class AggregateActionRestrictorScript : ActionRestrictorScript
 {
-    [SerializeField]
-    private ActionRestrictorScript[] aggregatedScripts;
+    [SerializeField] private ActionRestrictorScript[] aggregatedScripts;
 
     public override bool RestrictionSatisfied()
     {

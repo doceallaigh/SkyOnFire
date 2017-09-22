@@ -2,8 +2,7 @@
 
 public class HealthModifyingCollisionHandlerScript : CollisionHandlerScript
 {
-    [SerializeField]
-    private HealthTrackerScript healthTrackerScript;
+    [SerializeField] private HealthTrackerScript healthTrackerScript;
 
     private void Start()
     {

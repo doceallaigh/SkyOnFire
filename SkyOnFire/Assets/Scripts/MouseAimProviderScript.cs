@@ -2,8 +2,7 @@
 
 public class MouseAimProviderScript : AimProviderScript
 {
-    [SerializeField]
-    private Vector3 aimDirection;
+    [SerializeField] private Vector3 aimDirection;
 
     // Use this for initialization
     void Start()

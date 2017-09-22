@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class TargetTrackingForceProvider : ForceProviderScript
 {
-    [SerializeField]
-    private Transform target;
-
-    [SerializeField]
-    private Vector3 forceLimit;
-
-    [SerializeField]
-    private float rotationAxisMultiplier;
-
-    [SerializeField]
-    private Vector3 rotationalForce;
+    [SerializeField] private Transform target;
+    [SerializeField] private Vector3 forceLimit;
+    [SerializeField] private float rotationAxisMultiplier;
+    [SerializeField] private Vector3 rotationalForce;
 
     // Update is called once per frame
     void Update()

@@ -2,14 +2,10 @@
 
 public class HealthTrackerScript : MonoBehaviour
 {
-    [SerializeField]
-    private const int maxHealth = 5;
+    [SerializeField] private const int maxHealth = 5;
 
-    [SerializeField]
-    private int currentHealth;
-
-    [SerializeField]
-    private bool isDead;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private bool isDead;
 
     // Use this for initialization
     void Start()

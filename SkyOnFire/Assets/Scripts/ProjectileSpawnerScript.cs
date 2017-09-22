@@ -2,14 +2,9 @@
 
 public class ProjectileSpawnerScript : EntitySpawnerScript
 {
-    [SerializeField]
-    private int projectileSpeed;
-
-    [SerializeField]
-    private AimProviderScript aimProviderScript;
-
-    [SerializeField]
-    private Vector3 aimDirection;
+    [SerializeField] private int projectileSpeed;
+    [SerializeField] private AimProviderScript aimProviderScript;
+    [SerializeField] private Vector3 aimDirection;
 
     // Use this for initialization
     void Start()

@@ -2,8 +2,7 @@
 
 public class ReticleControllerScript : MonoBehaviour
 {
-    [SerializeField]
-    private GUITexture reticleTexture;
+    [SerializeField] private GUITexture reticleTexture;
 
     // Use this for initialization
     void Start()

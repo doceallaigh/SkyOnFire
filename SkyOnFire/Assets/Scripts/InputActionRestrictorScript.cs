@@ -2,8 +2,7 @@
 
 public class InputActionRestrictorScript : ActionRestrictorScript
 {
-    [SerializeField]
-    private string inputAxis;
+    [SerializeField] private string inputAxis;
     
     public override bool RestrictionSatisfied()
     {

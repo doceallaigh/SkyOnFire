@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class TimeActionRestrictorScript : ActionRestrictorScript
 {
-    [SerializeField]
-    private double timeLimitBetweenActionsSec;
+    [SerializeField] private double timeLimitBetweenActionsSec;
     
     private DateTime timeLastActionTaken;
 

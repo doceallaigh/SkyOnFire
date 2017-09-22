@@ -1,16 +1,30 @@
 ﻿using UnityEngine;
 
-public class AggregateForceProvider : MonoBehaviour
+public class AggregateForceProvider : ForceProviderScript
 {
-    // Use this for initialization
-    void Start()
-    {
+    [SerializeField] private ForceProviderScript[] aggregatedScripts;
 
+    public override Vector3 GetRotationalForce()
+    {
+        Vector3 aggregateForce = Vector3.zero;
+
+        foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+        {
+            aggregateForce += forceProvider.GetRotationalForce();
+        }
+
+        return aggregateForce;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override Vector3 GetTranslationalForce()
     {
+        Vector3 aggregateForce = Vector3.zero;
 
+        foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+        {
+            aggregateForce += forceProvider.GetTranslationalForce();
+        }
+
+        return aggregateForce;
     }
 }

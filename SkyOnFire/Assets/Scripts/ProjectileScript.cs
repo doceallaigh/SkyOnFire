@@ -4,8 +4,7 @@ public class ProjectileScript : MonoBehaviour
 {
     public Vector3 velocity;
 
-    [SerializeField]
-    private float lifetime = 5;
+    [SerializeField] private float lifetime = 5;
 
     // Use this for initialization
     void Start()
