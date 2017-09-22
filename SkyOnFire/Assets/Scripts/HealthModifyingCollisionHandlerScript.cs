@@ -2,7 +2,12 @@
 
 public class HealthModifyingCollisionHandlerScript : CollisionHandlerScript
 {
-    public HealthTrackerScript healthTrackerScript;
+    [SerializeField]
+    private HealthTrackerScript healthTrackerScript;
+
+    private void Start()
+    {
+    }
 
     protected override void HandleTriggerCollision(Collider other)
     {

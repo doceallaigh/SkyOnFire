@@ -2,17 +2,20 @@
 
 public class ShipScript : MonoBehaviour
 {
-    public ForceProviderScript forceProvider;
-    public ProjectileSpawnerScript projectileSpawner;
+    [SerializeField]
+    private ForceProviderScript forceProvider;
 
-    public CollisionHandlerScript[] collisionHandlerScripts;
+    [SerializeField]
+    private ProjectileSpawnerScript projectileSpawner;
 
-    public Vector3 translationalVelocity;
-    public Vector3 rotationalVelocity;
+    [SerializeField]
+    private CollisionHandlerScript[] collisionHandlerScripts;
 
-    void Start()
-    {
-    }
+    [SerializeField]
+    private Vector3 translationalVelocity;
+
+    [SerializeField]
+    private Vector3 rotationalVelocity;
 
     // Update is called once per frame
     void Update()

@@ -4,11 +4,16 @@ using UnityEngine;
 public class InputForceProviderScript : ForceProviderScript
 {
     // TODO These should be set some other way
-    public float translationAxisMultiplier;
+    [SerializeField]
+    private float translationAxisMultiplier;
 
-    public float rotationAxisMultiplier;
+    [SerializeField]
+    private float rotationAxisMultiplier;
 
+    [SerializeField]
     private Vector3 translationalForce;
+
+    [SerializeField]
     private Vector3 rotationalForce;
 
     // Use this for initialization

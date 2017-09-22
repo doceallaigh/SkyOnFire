@@ -1,6 +1,9 @@
-﻿public class AggregateActionRestrictorScript : ActionRestrictorScript
+﻿using UnityEngine;
+
+public class AggregateActionRestrictorScript : ActionRestrictorScript
 {
-    public ActionRestrictorScript[] aggregatedScripts;
+    [SerializeField]
+    private ActionRestrictorScript[] aggregatedScripts;
 
     public override bool RestrictionSatisfied()
     {

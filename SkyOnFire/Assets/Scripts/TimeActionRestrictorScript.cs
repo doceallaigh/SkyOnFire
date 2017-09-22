@@ -1,9 +1,11 @@
 ﻿using System;
+using UnityEngine;
 
 public class TimeActionRestrictorScript : ActionRestrictorScript
 {
-    public double timeLimitBetweenActionsSec;
-
+    [SerializeField]
+    private double timeLimitBetweenActionsSec;
+    
     private DateTime timeLastActionTaken;
 
     // Use this for initialization

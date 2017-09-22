@@ -1,11 +1,14 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProjectileSpawnerScript : EntitySpawnerScript
 {
-    public int projectileSpeed;
-    public AimProviderScript aimProviderScript;
+    [SerializeField]
+    private int projectileSpeed;
 
+    [SerializeField]
+    private AimProviderScript aimProviderScript;
+
+    [SerializeField]
     private Vector3 aimDirection;
 
     // Use this for initialization

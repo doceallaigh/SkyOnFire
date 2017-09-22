@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InputActionRestrictorScript : ActionRestrictorScript
 {
-    public string inputAxis;
-
+    [SerializeField]
+    private string inputAxis;
+    
     public override bool RestrictionSatisfied()
     {
         return Input.GetAxis(this.inputAxis) > 0;

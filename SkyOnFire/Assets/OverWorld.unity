@@ -222,6 +222,7 @@ MonoBehaviour:
   target: {fileID: 1553810089}
   forceLimit: {x: 100, y: 100, z: 100}
   rotationAxisMultiplier: 100
+  rotationalForce: {x: 0, y: 0, z: 0}
 --- !u!114 &83647874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,6 +534,7 @@ MonoBehaviour:
   actionRestrictorScript: {fileID: 812000917}
   projectileSpeed: 1
   aimProviderScript: {fileID: 812000914}
+  aimDirection: {x: 0, y: 0, z: 0}
 --- !u!4 &812000913
 Transform:
   m_ObjectHideFlags: 0
@@ -557,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f612534a4de29543b4f6267a37a46f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aimDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &812000915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,6 +1192,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   translationAxisMultiplier: 100
   rotationAxisMultiplier: 1000
+  translationalForce: {x: 0, y: 0, z: 0}
+  rotationalForce: {x: 0, y: 0, z: 0}
 --- !u!114 &1553810084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,6 +1373,7 @@ MonoBehaviour:
   actionRestrictorScript: {fileID: 1586192520}
   projectileSpeed: 1
   aimProviderScript: {fileID: 1586192519}
+  aimDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1586192519
 MonoBehaviour:
   m_ObjectHideFlags: 0

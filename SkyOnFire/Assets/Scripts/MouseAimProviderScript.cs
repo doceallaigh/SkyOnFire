@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MouseAimProviderScript : AimProviderScript
 {
+    [SerializeField]
     private Vector3 aimDirection;
 
     // Use this for initialization

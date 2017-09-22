@@ -3,12 +3,14 @@
 public class ProjectileScript : MonoBehaviour
 {
     public Vector3 velocity;
-    public float lifetime = 5;
+
+    [SerializeField]
+    private float lifetime = 5;
 
     // Use this for initialization
     void Start()
     {
-        Alive();
+        this.Alive();
     }
 
     // Update is called once per frame
@@ -24,6 +26,6 @@ public class ProjectileScript : MonoBehaviour
 
     void Alive()
     {
-        Destroy(gameObject, lifetime);
+        Object.Destroy(this.gameObject, this.lifetime);
     }
 }
