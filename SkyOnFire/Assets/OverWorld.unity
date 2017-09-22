@@ -200,7 +200,9 @@ GameObject:
   - component: {fileID: 83647875}
   - component: {fileID: 83647874}
   - component: {fileID: 83647876}
+  - component: {fileID: 83647878}
   - component: {fileID: 83647873}
+  - component: {fileID: 83647877}
   m_Layer: 0
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -234,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c39fbc4a039e6746baf3237d96a0905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceProvider: {fileID: 83647873}
+  forceProvider: {fileID: 83647878}
   projectileSpawner: {fileID: 1586192518}
   collisionHandlerScripts:
   - {fileID: 1563177252}
@@ -269,6 +271,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 5
   isDead: 0
+--- !u!114 &83647877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83647872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d223290a48f09946956e475450efeda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1553810089}
+  forceLimit: {x: 10, y: 10, z: 10}
+  translationAxisMultiplier: 10
+  translationalForce: {x: 0, y: 0, z: 0}
+  distanceToMaintainFromTarget: 20
+--- !u!114 &83647878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83647872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea825f6be585e414cab05d5d480acdce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggregatedScripts:
+  - {fileID: 83647873}
+  - {fileID: 83647877}
 --- !u!1 &343271148
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,8 +796,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
