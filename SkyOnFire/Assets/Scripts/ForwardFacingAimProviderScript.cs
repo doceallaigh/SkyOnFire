@@ -1,9 +1,13 @@
-﻿using UnityEngine;
-
-public class ForwardFacingAimProviderScript : AimProviderScript
+﻿namespace Assets.Scripts
 {
-    public override Vector3 GetAimDirection()
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
+
+    public class ForwardFacingAimProviderScript : AimProviderScript
     {
-        return this.transform.forward;
+        public override Vector3 GetAimDirection()
+        {
+            return this.transform.forward;
+        }
     }
 }

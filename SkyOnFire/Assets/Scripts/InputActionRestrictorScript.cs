@@ -1,16 +1,20 @@
-﻿using UnityEngine;
-
-public class InputActionRestrictorScript : ActionRestrictorScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private string inputAxis;
-    
-    public override bool RestrictionSatisfied()
-    {
-        return Input.GetAxis(this.inputAxis) > 0;
-    }
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    public override void ActionTaken()
+    public class InputActionRestrictorScript : ActionRestrictorScript
     {
-        // Do nothing
+        [SerializeField] private string inputAxis;
+
+        public override bool RestrictionSatisfied()
+        {
+            return Input.GetAxis(this.inputAxis) > 0;
+        }
+
+        public override void ActionTaken()
+        {
+            // Do nothing
+        }
     }
 }

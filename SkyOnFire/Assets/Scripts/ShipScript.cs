@@ -1,63 +1,67 @@
-﻿using UnityEngine;
-
-public class ShipScript : MonoBehaviour
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private ForceProviderScript forceProvider;
-    [SerializeField] private ProjectileSpawnerScript projectileSpawner;
-    [SerializeField] private CollisionHandlerScript[] collisionHandlerScripts;
-    [SerializeField] private Vector3 translationalVelocity;
-    [SerializeField] private Vector3 rotationalVelocity;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    // Update is called once per frame
-    void Update()
+    public class ShipScript : MonoBehaviour
     {
-        float deltaTime = Time.deltaTime;
+        [SerializeField] private ForceProviderScript forceProvider;
+        [SerializeField] private ProjectileSpawnerScript projectileSpawner;
+        [SerializeField] private CollisionHandlerScript[] collisionHandlerScripts;
+        [SerializeField] private Vector3 translationalVelocity;
+        [SerializeField] private Vector3 rotationalVelocity;
 
-        // These steps should be done via RigidBody
-        this.ApplyTranslation(deltaTime);
-        this.ApplyRotation(deltaTime);
-        this.ApplyTranslationalForce(deltaTime);
-        this.ApplyRotationalForce(deltaTime);
+        // Update is called once per frame
+        void Update()
+        {
+            float deltaTime = Time.deltaTime;
 
-        this.SpawnProjectiles();
-    }
+            // These steps should be done via RigidBody
+            this.ApplyTranslation(deltaTime);
+            this.ApplyRotation(deltaTime);
+            this.ApplyTranslationalForce(deltaTime);
+            this.ApplyRotationalForce(deltaTime);
 
-    private void ApplyTranslation(float deltaTime)
-    {
-        this.transform.Translate(this.translationalVelocity * deltaTime, Space.World);
-    }
+            this.SpawnProjectiles();
+        }
 
-    private void ApplyRotation(float deltaTime)
-    {
-        this.transform.Rotate(this.rotationalVelocity * deltaTime);
-    }
+        private void ApplyTranslation(float deltaTime)
+        {
+            this.transform.Translate(this.translationalVelocity * deltaTime, Space.World);
+        }
 
-    private void ApplyTranslationalForce(float deltaTime)
-    {
-        //TODO
-        const int mass = 1;
+        private void ApplyRotation(float deltaTime)
+        {
+            this.transform.Rotate(this.rotationalVelocity * deltaTime);
+        }
 
-        Vector3 translationalForce = this.forceProvider.GetTranslationalForce();
-        Vector3 translationalAcceleration = translationalForce / mass;
+        private void ApplyTranslationalForce(float deltaTime)
+        {
+            //TODO
+            const int mass = 1;
 
-        Vector3 translationalMoment = translationalAcceleration * deltaTime;
-        this.translationalVelocity += translationalMoment;
-    }
+            Vector3 translationalForce = this.forceProvider.GetTranslationalForce();
+            Vector3 translationalAcceleration = translationalForce / mass;
 
-    private void ApplyRotationalForce(float deltaTime)
-    {
-        //TODO
-        const int mass = 1;
+            Vector3 translationalMoment = translationalAcceleration * deltaTime;
+            this.translationalVelocity += translationalMoment;
+        }
 
-        Vector3 rotationalForce = this.forceProvider.GetRotationalForce();
-        Vector3 rotationalAcceleration = rotationalForce / mass;
+        private void ApplyRotationalForce(float deltaTime)
+        {
+            //TODO
+            const int mass = 1;
 
-        Vector3 rotationalMoment = rotationalAcceleration * deltaTime;
-        this.rotationalVelocity += rotationalMoment;
-    }
+            Vector3 rotationalForce = this.forceProvider.GetRotationalForce();
+            Vector3 rotationalAcceleration = rotationalForce / mass;
 
-    private void SpawnProjectiles()
-    {
-        this.projectileSpawner.TrySpawn();
+            Vector3 rotationalMoment = rotationalAcceleration * deltaTime;
+            this.rotationalVelocity += rotationalMoment;
+        }
+
+        private void SpawnProjectiles()
+        {
+            this.projectileSpawner.TrySpawn();
+        }
     }
 }

@@ -1,30 +1,33 @@
-﻿using UnityEngine;
-
-public class ProjectileScript : MonoBehaviour
+﻿namespace Assets.Scripts
 {
-    public Vector3 velocity;
+    using UnityEngine;
 
-    [SerializeField] private float lifetime = 5;
-
-    // Use this for initialization
-    void Start()
+    public class ProjectileScript : MonoBehaviour
     {
-        this.Alive();
-    }
+        public Vector3 velocity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        this.GetComponent<Rigidbody>().MovePosition(this.transform.position + this.velocity);
-    }
+        [SerializeField] private float lifetime = 5;
 
-    void OnTriggerEnter(Collider collider)
-    {
-        Object.Destroy(this.gameObject);
-    }
+        // Use this for initialization
+        void Start()
+        {
+            this.Alive();
+        }
 
-    void Alive()
-    {
-        Object.Destroy(this.gameObject, this.lifetime);
+        // Update is called once per frame
+        void Update()
+        {
+            this.GetComponent<Rigidbody>().MovePosition(this.transform.position + this.velocity);
+        }
+
+        void OnTriggerEnter(Collider collider)
+        {
+            Object.Destroy(this.gameObject);
+        }
+
+        void Alive()
+        {
+            Object.Destroy(this.gameObject, this.lifetime);
+        }
     }
 }

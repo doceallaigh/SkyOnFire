@@ -1,27 +1,31 @@
-﻿using UnityEngine;
-
-public class AggregateActionRestrictorScript : ActionRestrictorScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private ActionRestrictorScript[] aggregatedScripts;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    public override bool RestrictionSatisfied()
+    public class AggregateActionRestrictorScript : ActionRestrictorScript
     {
-        foreach (ActionRestrictorScript restrictor in this.aggregatedScripts)
+        [SerializeField] private ActionRestrictorScript[] aggregatedScripts;
+
+        public override bool RestrictionSatisfied()
         {
-            if (!restrictor.RestrictionSatisfied())
+            foreach (ActionRestrictorScript restrictor in this.aggregatedScripts)
             {
-                return false;
+                if (!restrictor.RestrictionSatisfied())
+                {
+                    return false;
+                }
             }
+
+            return true;
         }
 
-        return true;
-    }
-
-    public override void ActionTaken()
-    {
-        foreach (ActionRestrictorScript restrictor in this.aggregatedScripts)
+        public override void ActionTaken()
         {
-            restrictor.ActionTaken();
+            foreach (ActionRestrictorScript restrictor in this.aggregatedScripts)
+            {
+                restrictor.ActionTaken();
+            }
         }
     }
 }

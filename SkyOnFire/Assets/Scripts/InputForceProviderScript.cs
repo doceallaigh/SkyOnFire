@@ -1,54 +1,60 @@
-﻿using System;
-using UnityEngine;
-
-public class InputForceProviderScript : ForceProviderScript
+﻿namespace Assets.Scripts
 {
-    // TODO These should be set some other way
-    [SerializeField] private float translationAxisMultiplier;
-    [SerializeField] private float rotationAxisMultiplier;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    [SerializeField] private Vector3 translationalForce;
-    [SerializeField] private Vector3 rotationalForce;
-
-    // Use this for initialization
-    void Start()
+    public class InputForceProviderScript : ForceProviderScript
     {
+        // TODO These should be set some other way
+        [SerializeField] private float translationAxisMultiplier;
 
-    }
+        [SerializeField] private float rotationAxisMultiplier;
 
-    // Update is called once per frame
-    void Update()
-    {
-        float deltaTime = Time.deltaTime;
+        [SerializeField] private Vector3 translationalForce;
+        [SerializeField] private Vector3 rotationalForce;
 
-        this.UpdateTranslationalForce(deltaTime);
-        this.UpdateRotationalForce(deltaTime);
-    }
+        // Use this for initialization
+        void Start()
+        {
 
-    public override Vector3 GetTranslationalForce()
-    {
-        return this.translationalForce;
-    }
+        }
 
-    public override Vector3 GetRotationalForce()
-    {
-        return this.rotationalForce;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            float deltaTime = Time.deltaTime;
 
-    private void UpdateTranslationalForce(float deltaTime)
-    {
-        Vector3 strafeTranslation = this.transform.right * Input.GetAxis("Strafe") * this.translationAxisMultiplier *
-                                    deltaTime;
-        Vector3 thrustTranslation = this.transform.forward * Input.GetAxis("Thrust") * this.translationAxisMultiplier *
-                                    deltaTime;
+            this.UpdateTranslationalForce(deltaTime);
+            this.UpdateRotationalForce(deltaTime);
+        }
 
-        this.translationalForce = strafeTranslation + thrustTranslation;
-    }
+        public override Vector3 GetTranslationalForce()
+        {
+            return this.translationalForce;
+        }
 
-    private void UpdateRotationalForce(float deltaTime)
-    {
-        Vector3 yawRotation = this.transform.up * Input.GetAxis("Yaw") * this.rotationAxisMultiplier * deltaTime;
+        public override Vector3 GetRotationalForce()
+        {
+            return this.rotationalForce;
+        }
 
-        this.rotationalForce = yawRotation;
+        private void UpdateTranslationalForce(float deltaTime)
+        {
+            Vector3 strafeTranslation = this.transform.right * Input.GetAxis("Strafe") *
+                                        this.translationAxisMultiplier *
+                                        deltaTime;
+            Vector3 thrustTranslation = this.transform.forward * Input.GetAxis("Thrust") *
+                                        this.translationAxisMultiplier *
+                                        deltaTime;
+
+            this.translationalForce = strafeTranslation + thrustTranslation;
+        }
+
+        private void UpdateRotationalForce(float deltaTime)
+        {
+            Vector3 yawRotation = this.transform.up * Input.GetAxis("Yaw") * this.rotationAxisMultiplier * deltaTime;
+
+            this.rotationalForce = yawRotation;
+        }
     }
 }

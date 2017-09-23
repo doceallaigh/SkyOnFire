@@ -1,11 +1,14 @@
-﻿using UnityEngine;
-
-public abstract class CollisionHandlerScript : MonoBehaviour
+﻿namespace Assets.Scripts.AbstractBehaviors
 {
-    protected abstract void HandleTriggerCollision(Collider collider);
+    using UnityEngine;
 
-    private void OnTriggerEnter(Collider collider)
+    public abstract class CollisionHandlerScript : MonoBehaviour
     {
-        this.HandleTriggerCollision(collider);
+        protected abstract void HandleTriggerCollision(Collider collider);
+
+        private void OnTriggerEnter(Collider collider)
+        {
+            this.HandleTriggerCollision(collider);
+        }
     }
 }

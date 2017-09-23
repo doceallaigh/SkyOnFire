@@ -1,23 +1,27 @@
-﻿using UnityEngine;
-
-public class HealthModifyingCollisionHandlerScript : CollisionHandlerScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private HealthTrackerScript healthTrackerScript;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    private void Start()
+    public class HealthModifyingCollisionHandlerScript : CollisionHandlerScript
     {
-    }
+        [SerializeField] private HealthTrackerScript healthTrackerScript;
 
-    protected override void HandleTriggerCollision(Collider other)
-    {
-        this.healthTrackerScript.TakeDamage(1);
-
-        // TODO This should be split out into a separate handler
-        Debug.Log("yeehaw");
-
-        if (other.name == "PlayerShip")
+        private void Start()
         {
-            Debug.Log("buh");
+        }
+
+        protected override void HandleTriggerCollision(Collider other)
+        {
+            this.healthTrackerScript.TakeDamage(1);
+
+            // TODO This should be split out into a separate handler
+            Debug.Log("yeehaw");
+
+            if (other.name == "PlayerShip")
+            {
+                Debug.Log("buh");
+            }
         }
     }
 }

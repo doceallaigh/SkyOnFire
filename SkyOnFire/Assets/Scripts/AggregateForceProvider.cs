@@ -1,30 +1,34 @@
-﻿using UnityEngine;
-
-public class AggregateForceProvider : ForceProviderScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private ForceProviderScript[] aggregatedScripts;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    public override Vector3 GetRotationalForce()
+    public class AggregateForceProvider : ForceProviderScript
     {
-        Vector3 aggregateForce = Vector3.zero;
+        [SerializeField] private ForceProviderScript[] aggregatedScripts;
 
-        foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+        public override Vector3 GetRotationalForce()
         {
-            aggregateForce += forceProvider.GetRotationalForce();
+            Vector3 aggregateForce = Vector3.zero;
+
+            foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+            {
+                aggregateForce += forceProvider.GetRotationalForce();
+            }
+
+            return aggregateForce;
         }
 
-        return aggregateForce;
-    }
-
-    public override Vector3 GetTranslationalForce()
-    {
-        Vector3 aggregateForce = Vector3.zero;
-
-        foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+        public override Vector3 GetTranslationalForce()
         {
-            aggregateForce += forceProvider.GetTranslationalForce();
-        }
+            Vector3 aggregateForce = Vector3.zero;
 
-        return aggregateForce;
+            foreach (ForceProviderScript forceProvider in this.aggregatedScripts)
+            {
+                aggregateForce += forceProvider.GetTranslationalForce();
+            }
+
+            return aggregateForce;
+        }
     }
 }

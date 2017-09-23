@@ -1,50 +1,53 @@
-﻿using UnityEngine;
-
-public class HealthTrackerScript : MonoBehaviour
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private const int maxHealth = 5;
+    using UnityEngine;
 
-    [SerializeField] private int currentHealth;
-    [SerializeField] private bool isDead;
-
-    // Use this for initialization
-    void Start()
+    public class HealthTrackerScript : MonoBehaviour
     {
-        this.currentHealth = maxHealth;
-        this.isDead = false;
-        Debug.Log(this.currentHealth);
-    }
+        [SerializeField] private const int maxHealth = 5;
 
-    // Update is called once per frame
-    void Update()
-    {
-        //pretty cool animation
-        if (this.isDead == true)
+        [SerializeField] private int currentHealth;
+        [SerializeField] private bool isDead;
+
+        // Use this for initialization
+        void Start()
         {
-            this.transform.Rotate(10, 20, 15);
-        }
-    }
-
-    public void TakeDamage(int amount)
-    {
-        if (this.isDead == true)
-        {
-            return;
+            this.currentHealth = maxHealth;
+            this.isDead = false;
+            Debug.Log(this.currentHealth);
         }
 
-        this.currentHealth -= amount;
-
-        if (this.currentHealth <= 0)
+        // Update is called once per frame
+        void Update()
         {
-            this.Die();
+            //pretty cool animation
+            if (this.isDead == true)
+            {
+                this.transform.Rotate(10, 20, 15);
+            }
         }
 
-        Debug.Log("Current Health: " + this.currentHealth);
-    }
+        public void TakeDamage(int amount)
+        {
+            if (this.isDead == true)
+            {
+                return;
+            }
 
-    public void Die()
-    {
-        this.isDead = true;
-        Destroy(this.gameObject, 3);
+            this.currentHealth -= amount;
+
+            if (this.currentHealth <= 0)
+            {
+                this.Die();
+            }
+
+            Debug.Log("Current Health: " + this.currentHealth);
+        }
+
+        public void Die()
+        {
+            this.isDead = true;
+            Destroy(this.gameObject, 3);
+        }
     }
 }

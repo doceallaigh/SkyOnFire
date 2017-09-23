@@ -1,29 +1,33 @@
-﻿using UnityEngine;
-
-public class MouseAimProviderScript : AimProviderScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private Vector3 aimDirection;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    // Use this for initialization
-    void Start()
+    public class MouseAimProviderScript : AimProviderScript
     {
-        this.SetAim();
-    }
+        [SerializeField] private Vector3 aimDirection;
 
-    // Update is called once per frame
-    void Update()
-    {
-        this.SetAim();
-    }
+        // Use this for initialization
+        void Start()
+        {
+            this.SetAim();
+        }
 
-    private void SetAim()
-    {
-        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        this.aimDirection = mouseRay.direction;
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            this.SetAim();
+        }
 
-    public override Vector3 GetAimDirection()
-    {
-        return this.aimDirection;
+        private void SetAim()
+        {
+            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            this.aimDirection = mouseRay.direction;
+        }
+
+        public override Vector3 GetAimDirection()
+        {
+            return this.aimDirection;
+        }
     }
 }

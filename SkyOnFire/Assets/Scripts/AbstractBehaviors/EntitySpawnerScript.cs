@@ -1,21 +1,24 @@
-﻿using UnityEngine;
-
-public abstract class EntitySpawnerScript : MonoBehaviour
+﻿namespace Assets.Scripts.AbstractBehaviors
 {
-    public ActionRestrictorScript actionRestrictorScript;
+    using UnityEngine;
 
-    public virtual bool TrySpawn()
+    public abstract class EntitySpawnerScript : MonoBehaviour
     {
-        if (this.actionRestrictorScript.RestrictionSatisfied())
-        {
-            this.Spawn();
-            this.actionRestrictorScript.ActionTaken();
+        [SerializeField] private ActionRestrictorScript actionRestrictorScript;
 
-            return true;
+        public virtual bool TrySpawn()
+        {
+            if (this.actionRestrictorScript.RestrictionSatisfied())
+            {
+                this.Spawn();
+                this.actionRestrictorScript.ActionTaken();
+
+                return true;
+            }
+
+            return false;
         }
 
-        return false;
+        protected abstract void Spawn();
     }
-
-    protected abstract void Spawn();
 }

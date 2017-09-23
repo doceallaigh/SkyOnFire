@@ -1,25 +1,29 @@
-﻿using System;
-using UnityEngine;
-
-public class TimeActionRestrictorScript : ActionRestrictorScript
+﻿namespace Assets.Scripts
 {
-    [SerializeField] private double timeLimitBetweenActionsSec;
-    
-    private DateTime timeLastActionTaken;
+    using System;
+    using UnityEngine;
+    using Assets.Scripts.AbstractBehaviors;
 
-    // Use this for initialization
-    void Start()
+    public class TimeActionRestrictorScript : ActionRestrictorScript
     {
-        this.timeLastActionTaken = DateTime.MinValue;
-    }
+        [SerializeField] private double timeLimitBetweenActionsSec;
 
-    public override bool RestrictionSatisfied()
-    {
-        return (DateTime.Now - this.timeLastActionTaken).TotalSeconds > this.timeLimitBetweenActionsSec;
-    }
+        private DateTime timeLastActionTaken;
 
-    public override void ActionTaken()
-    {
-        this.timeLastActionTaken = DateTime.Now;
+        // Use this for initialization
+        void Start()
+        {
+            this.timeLastActionTaken = DateTime.MinValue;
+        }
+
+        public override bool RestrictionSatisfied()
+        {
+            return (DateTime.Now - this.timeLastActionTaken).TotalSeconds > this.timeLimitBetweenActionsSec;
+        }
+
+        public override void ActionTaken()
+        {
+            this.timeLastActionTaken = DateTime.Now;
+        }
     }
 }

@@ -1,6 +1,9 @@
-﻿using UnityEngine;
-
-public abstract class AimProviderScript : MonoBehaviour
+﻿namespace Assets.Scripts.AbstractBehaviors
 {
-    public abstract Vector3 GetAimDirection();
+    using UnityEngine;
+
+    public abstract class AimProviderScript : MonoBehaviour
+    {
+        public abstract Vector3 GetAimDirection();
+    }
 }

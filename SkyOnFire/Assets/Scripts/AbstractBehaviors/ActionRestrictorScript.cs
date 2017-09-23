@@ -1,8 +1,11 @@
-﻿using UnityEngine;
-
-public abstract class ActionRestrictorScript : MonoBehaviour
+﻿namespace Assets.Scripts.AbstractBehaviors
 {
-    public abstract bool RestrictionSatisfied();
+    using UnityEngine;
 
-    public abstract void ActionTaken();
+    public abstract class ActionRestrictorScript : MonoBehaviour
+    {
+        public abstract bool RestrictionSatisfied();
+
+        public abstract void ActionTaken();
+    }
 }

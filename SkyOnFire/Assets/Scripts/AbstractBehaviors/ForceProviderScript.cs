@@ -1,8 +1,11 @@
-﻿using UnityEngine;
-
-public abstract class ForceProviderScript : MonoBehaviour
+﻿namespace Assets.Scripts.AbstractBehaviors
 {
-    public abstract Vector3 GetTranslationalForce();
+    using UnityEngine;
 
-    public abstract Vector3 GetRotationalForce();
+    public abstract class ForceProviderScript : MonoBehaviour
+    {
+        public abstract Vector3 GetTranslationalForce();
+
+        public abstract Vector3 GetRotationalForce();
+    }
 }
