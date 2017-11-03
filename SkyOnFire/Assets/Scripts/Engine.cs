@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Assets.Scripts
+﻿namespace Assets.Scripts
 {
     using System;
     using Assets.Scripts.AbstractBehaviors;
@@ -9,14 +7,13 @@ namespace Assets.Scripts
 
     public class Engine : ForceProviderScript, IEngine
     {
-        [SerializeField] private Vector3 unitForceVector;
         [SerializeField] private Vector3 forcePositionOffset;
         [SerializeField] private float maxMagnitude;
         [SerializeField] private float magnitude;
 
         public Vector3 UnitForceVector
         {
-            get { return this.unitForceVector; }
+            get { return this.transform.forward.normalized; }
         }
 
         public Vector3 ForcePosition
@@ -39,7 +36,7 @@ namespace Assets.Scripts
 
         public override Vector3 GetTranslationalForce()
         {
-            return this.unitForceVector * this.magnitude;
+            return this.UnitForceVector * this.magnitude;
         }
 
         public override Vector3 GetRotationalForce()

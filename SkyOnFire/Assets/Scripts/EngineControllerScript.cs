@@ -65,6 +65,11 @@ namespace Assets.Scripts
         /// </remarks>
         private void FixedUpdate()
         {
+            foreach (Engine engine in this.engines)
+            {
+                engine.SetActivationRate(0.0f);
+            }
+
             EngineActivationDecider engineActivationDecider = new EngineActivationDecider(this.engines);
             EngineActivationMap activationMap = engineActivationDecider.GetTargetEngineActivationMap(this.targetForce);
 
