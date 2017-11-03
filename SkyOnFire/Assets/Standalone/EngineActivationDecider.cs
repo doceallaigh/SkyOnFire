@@ -37,8 +37,8 @@
 
             foreach (IEngine engine in directMatchEngines)
             {
-                float remainingActivationRate = Mathf.Max(engine.MaxMagnitude - targetForceVector.magnitude, 0.0f);
-                float activationRate = engine.MaxMagnitude - remainingActivationRate;
+                float magnitudeUsed = Math.Min(engine.MaxMagnitude, targetForceVector.magnitude);
+                float activationRate = magnitudeUsed / engine.MaxMagnitude;
 
                 targetForceVector -= engine.UnitForceVector * activationRate;
 
@@ -60,8 +60,9 @@
             //// For each engine, split force vector into components parrallel and perpendicular to target force vector
             //// Chain parallel components together, recording crossings/loops
             //// Engine activation is dictated by the loop corresponding to the greatest parallel component sum
-            
-            throw new NotImplementedException();
+
+            EngineActivationMap activationMap = new EngineActivationMap();
+            return activationMap;
         }
     }
 }

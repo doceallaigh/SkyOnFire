@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts
+﻿using System.Runtime.CompilerServices;
+
+namespace Assets.Scripts
 {
     using System;
     using Assets.Scripts.AbstractBehaviors;
@@ -7,8 +9,8 @@
 
     public class Engine : ForceProviderScript, IEngine
     {
-        [SerializeField] private readonly Vector3 unitForceVector;
-        [SerializeField] private readonly Vector3 forcePositionOffset;
+        [SerializeField] private Vector3 unitForceVector;
+        [SerializeField] private Vector3 forcePositionOffset;
         [SerializeField] private float maxMagnitude;
         [SerializeField] private float magnitude;
 

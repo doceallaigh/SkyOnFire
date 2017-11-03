@@ -1,4 +1,7 @@
-﻿namespace Assets.Scripts
+﻿using System.Collections.Generic;
+using Assets.Standalone;
+
+namespace Assets.Scripts
 {
     using UnityEngine;
 
@@ -62,12 +65,15 @@
         /// </remarks>
         private void FixedUpdate()
         {
-            EngineActivationMap = new EngineActivationMap(this.engines);
+            EngineActivationDecider engineActivationDecider = new EngineActivationDecider(this.engines);
+            EngineActivationMap activationMap = engineActivationDecider.GetTargetEngineActivationMap(this.targetForce);
 
-            foreach (Engine engine in this.engines)
+            foreach (KeyValuePair<IEngine, float> engineActivation in activationMap)
             {
-                // TODO Eliminate assumption that all engines face center mass.
+                IEngine engine = engineActivation.Key;
+                float activationRate = engineActivation.Value;
 
+                engine.SetActivationRate(activationRate);
             }
         }
 
